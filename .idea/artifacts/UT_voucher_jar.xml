@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="UT_voucher:jar">
+    <output-path>$PROJECT_DIR$/../../work/Uy Tit/voucher</output-path>
+    <root id="archive" name="UT_voucher.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../../work/Uy Tit/voucher/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="UT_voucher" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JAR files/jdatepicker-1.3.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../dad system/mysql-connector-java-8.0.15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/commons-beanutils-1.8.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/commons-collections4-4.4.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/commons-digester-2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/commons-javaflow-20060411.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/commons-logging-1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/groovy-all-2.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/iText-2.1.7.js2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/jasperreports-6.12.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/jcommon-1.0.15.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/jfreechart-1.0.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../Jasper JARS/poi-3.7-20101029.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../JAR files/swingx-all-1.6.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
