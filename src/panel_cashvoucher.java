@@ -14,9 +14,7 @@ import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Properties;
+import java.util.*;
 
 public class panel_cashvoucher extends JPanel {
     ResultSet rset;
@@ -28,9 +26,12 @@ public class panel_cashvoucher extends JPanel {
     JPanel pnl_north, pnl_center, pnl_south;
     int i;
     panel_user[] employeepanel;
+    JButton[] btn_absent;
     boolean g;
     int batch, x;
     String startdate = null, enddate = null;
+    Vector<Vector<Object>> listabsent;
+    String[][] list_absent;
 
     public panel_cashvoucher(int batchid) throws Exception {
         HandleControlButton control = new HandleControlButton();
@@ -130,6 +131,8 @@ public class panel_cashvoucher extends JPanel {
         pnl_north.add(lbl_week, c);
 
         employeepanel = new panel_user[i];
+        btn_absent = new JButton[i];
+        list_absent = new String[i][6];
 
         if (batch == 0)
         {
@@ -168,6 +171,7 @@ public class panel_cashvoucher extends JPanel {
                     }
                 });
 
+                int finalX = x;
                 employeepanel[x].text_days.addKeyListener(new KeyAdapter() {
                     public void keyTyped(KeyEvent e) {
                         char c = e.getKeyChar();
@@ -176,6 +180,50 @@ public class panel_cashvoucher extends JPanel {
                                 (c == KeyEvent.VK_DELETE)) || employeepanel[y].text_days.getText().length() >= 1) {
                             getToolkit().beep();
                             e.consume();
+                        }
+                        else if (!((c == KeyEvent.VK_BACK_SPACE) || (c == KeyEvent.VK_DELETE)))
+                        {
+                            int present, absentdays;
+
+                            present = Integer.valueOf(String.valueOf(c));
+
+                            absentdays = 6 - present;
+
+                            if (absentdays > 0)
+                            {
+                                GridBagConstraints g = new GridBagConstraints();
+
+                                g.gridy = 0;
+                                g.gridx = 4;
+
+                                if (btn_absent[y] == null)
+                                {
+                                    btn_absent[y] = new JButton("Choose Absent Days");
+                                    employeepanel[y].add(btn_absent[y], g);
+                                }
+                                else if (btn_absent[y].getParent() == null) {
+                                    employeepanel[y].add(btn_absent[y], g);
+                                }
+
+                                employeepanel[y].repaint();
+                                employeepanel[y].revalidate();
+
+                                listabsent = new Vector<Vector<Object>>();
+                                list_absent[y][0] = "record 1" + "employee " + y;
+                                list_absent[y][1] = "record 2" + "employee " + y;
+
+                                System.out.println(list_absent[y][0] + list_absent[y][1]);
+                            }
+                            else if (absentdays == 0)
+                            {
+                                if (!(btn_absent[y] == null))
+                                    employeepanel[y].remove(btn_absent[y]);
+
+                                employeepanel[y].repaint();
+                                employeepanel[y].revalidate();
+                            }
+
+                            System.out.println(String.valueOf(c) + " " + c + " " + present + " " + absentdays);
                         }
                     }
                 });
